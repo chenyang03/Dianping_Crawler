@@ -1,13 +1,17 @@
 # Dianping_Crawler
 
+== Before Installation ==
+
 Please be sure that you have installed Python2.7 and Selenium Webdriver.
 
-User Crawler Usage:
+== User Crawler == 
 
-Before running crawler, create a new folder named 'Data' beside User_Crawler folder.
+Usage:
 
-Change directory to User_Crawler, and edit begin_ID, end_ID, and step in dianping_u_script.py.
+- Before running crawler, create a new subfolder named 'Data' inside 'User_Crawler' folder.
 
-Run it using bash command like 'python dianping_u_script.py'.
+- Change directory to User_Crawler, and edit begin_ID, end_ID, and step in dianping_u_script.py.
 
-When it is done, you can have your data in '../Data' folder.
+- Run it using bash command like 'python dianping_u_script.py'.
+
+- When it is done, you can find your data in 'User_Crawler/Data' folder.

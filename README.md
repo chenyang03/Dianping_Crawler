@@ -2,11 +2,11 @@
 
 This crawler is able to help me crawl the publicly viewable information of a user or a venue in Dazhong Dianping (http://www.dianping.com/aboutus). 
 
-== Before Installation ==
+## Before Installation
 
 We have tested our crawler on Ubuntu (version: 14.04). Please make sure that you have installed Python2.7 and Selenium Webdriver.
 
-== User Crawler == 
+## User Crawler 
 
 Usage:
 
@@ -18,6 +18,12 @@ Usage:
 
 - When it is done, you can find your data in 'User_Crawler/Data' folder.
 
-== Venue Crawler ==
+## Venue Crawler
 
 Will be released soon.
+
+
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
+

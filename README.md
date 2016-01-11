@@ -10,13 +10,15 @@ We have tested our crawler on Ubuntu (version: 14.04). Please make sure that you
 
 Usage:
 
-- Before running crawler, create a new subfolder named 'Data' inside 'User_Crawler' folder.
+- Change directory to User_Crawler.
 
-- Change directory to User_Crawler, and edit begin_ID, end_ID, and step in dianping_u_script.py.
+- Run './install.sh' to set everything ready for user crawler to run.
+
+- Edit begin_ID, end_ID, and step in 'dianping_u_script.py'.
 
 - Run it using bash command like 'python dianping_u_script.py'.
 
-- When it is done, you can find your data in 'User_Crawler/Data' folder.
+- When it is done, you can collect your data in 'User_Crawler/Data' folder.
 
 ## Venue Crawler
 

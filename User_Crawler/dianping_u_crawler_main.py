@@ -13,6 +13,7 @@ from selenium import webdriver
 def getInRange(first, last, step):
     driver = webdriver.Firefox()
     for i in range(first, last+1, step):
+        print(i)
         try:
             time.sleep(random.randint(3, 4))
             profile_str = dianping_u_profile_crawler.get_page(i, driver).getstr()

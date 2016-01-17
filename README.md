@@ -12,11 +12,13 @@ Usage:
 
 - Change directory to User_Crawler.
 
-- Run './install.sh' to set everything ready for user crawler to run.
+- Run 'bash install.sh' (no sudo please) to set everything ready for user crawler to run.
 
-- Edit begin_ID, end_ID, and step in 'dianping_u_script.py'.
+- Edit 'begin_ID', 'end_ID', and 'step' in 'dianping_u_script.py'.
 
-- Run it using bash command like 'python dianping_u_script.py'.
+- Manually set the content of status.txt to begin_ID (important).
+
+- Run crawler using bash command 'xvfb-run python dianping_u_script.py'.
 
 - When it is done, you can collect your data in 'User_Crawler/Data' folder.
 

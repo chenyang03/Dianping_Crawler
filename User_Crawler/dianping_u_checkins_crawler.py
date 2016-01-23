@@ -1,6 +1,10 @@
 # encoding: utf-8
 from selenium import webdriver
+from dianping_u_utils.shop_profile import *
+import codecs
 import re
+import time
+import random
 
 def toJSON(times, places, shopID):
     result = "{\n"
@@ -16,7 +20,7 @@ def toJSON(times, places, shopID):
 
 def get_checkins(ID, driver):
     driver.get("http://www.dianping.com/member/" + str(ID) + "/checkin")
-    for i in range(1,10000):
+    for i in range(1,200):
         try:
             button = driver.find_element_by_id("J_more")
             button.click()
@@ -32,6 +36,21 @@ def get_checkins(ID, driver):
     times = filter1_time.findall(html) + filter2_time.findall(html)
     places= filter1.findall(html) + filter2.findall(html)
     shopID = filter1_shopID.findall(html) + filter2_shopID.findall(html)
+    #print("shopID: ", shopID)
+    for each_id in shopID:
+        time.sleep(random.randint(3, 4))
+        try:
+            s = Shop(driver, str(each_id))
+        except:
+            continue
+        try:
+            testf = open("./Data/Shops/" + str(each_id))
+            testf.close()
+            continue
+        except:
+            outf = codecs.open("./Data/Shops/" + str(each_id), 'w', 'utf-8')
+            outf.write(s.getstr() + "\n")
+            outf.close()
     if not len(times) == len(places) or not len(places) == len(shopID):
         print("Something wrong...")
     return toJSON(times, places, shopID)

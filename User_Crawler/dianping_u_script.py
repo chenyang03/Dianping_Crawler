@@ -1,7 +1,7 @@
 import dianping_u_crawler_main
 
-begin_ID = 210000
-end_ID = 300000
+begin_ID = 1019703
+end_ID = 1019704
 step = 10000
 
 def Process(N):

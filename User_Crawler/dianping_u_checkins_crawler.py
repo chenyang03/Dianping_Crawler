@@ -38,19 +38,20 @@ def get_checkins(ID, driver):
     shopID = filter1_shopID.findall(html) + filter2_shopID.findall(html)
     #print("shopID: ", shopID)
     for each_id in shopID:
-        time.sleep(random.randint(3, 4))
-        try:
-            s = Shop(driver, str(each_id))
-        except:
-            continue
         try:
             testf = open("./Data/Shops/" + str(each_id))
             testf.close()
             continue
         except:
+            "do nothing ..."
+        time.sleep(random.randint(3, 4))
+        try:
+            s = Shop(driver, str(each_id))
             outf = codecs.open("./Data/Shops/" + str(each_id), 'w', 'utf-8')
             outf.write(s.getstr() + "\n")
             outf.close()
+        except:
+            continue
     if not len(times) == len(places) or not len(places) == len(shopID):
         print("Something wrong...")
     return toJSON(times, places, shopID)

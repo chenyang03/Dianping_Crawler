@@ -1,8 +1,10 @@
 # encoding: utf-8
 import random
 import time
+import codecs
 import re
 from selenium import webdriver
+from dianping_u_utils.shop_profile import *
 
 class Reviews(object):
     def __init__(self):
@@ -59,9 +61,27 @@ def get_reviews(ID, driver):
         for i in range(0, len(nameId)):
             temp = []
             temp.append(nameId[i][0])
+            #print("shopID: ", nameId[i][0])
             temp.append(nameId[i][1])
             temp.append(int(star[i]))
             temp.append(comment[i])
             temp.append(date[i])
             reviews.reviews.append(temp)
+        # store shop profiles
+        for each_id in nameId:
+            try:
+                testf = open("./Data/Shops/" + str(each_id[0]))
+                testf.close()
+                continue
+            except:
+                "do nothing ..."
+            time.sleep(random.randint(3, 4))
+            try:
+                print("now getting " + str(each_id[0]))
+                s = Shop(driver, str(each_id[0]))
+                outf = codecs.open("./Data/Shops/" + str(each_id[0]), 'w', 'utf-8')
+                outf.write(s.getstr() + "\n")
+                outf.close()
+            except:
+                continue
     return reviews.getstr()

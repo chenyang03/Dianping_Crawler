@@ -3,6 +3,7 @@ import time
 import codecs
 import os
 import random
+import json
 import dianping_u_profile_crawler
 import dianping_u_follows_crawler
 import dianping_u_fans_crawler
@@ -25,6 +26,15 @@ def getInRange(first, last, step):
             out = codecs.open("./Data/%s_profile.txt"%str(i), 'w', 'utf-8')
             out.write(profile_str + "\n")
             out.close()
+            ###
+            # threshold
+            file_threshold = open("./Data/%s_profile.txt"%str(i))
+            content_json = json.loads(file_threshold.read())
+            file_threshold.close()
+            if content_json['Checkin'] <= 0 or content_json['Review'] <= 0:
+                continue
+            ###
+            print("... processing an active user ...")
             time.sleep(random.randint(3, 4))
             out = codecs.open("./Data/%s_follows.txt"%str(i), 'w', 'utf-8')
             out.write(dianping_u_follows_crawler.get_follows(i, driver).getstr() + "\n")

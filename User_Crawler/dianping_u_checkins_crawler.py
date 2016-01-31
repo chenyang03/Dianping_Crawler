@@ -27,12 +27,12 @@ def get_checkins(ID, driver):
         except:
             break
     html = driver.page_source
-    filter1_time = re.compile(u"<span class=\"time\">(.{14})\u5728</span>\n")
+    filter1_time = re.compile(u"<span class=\"time\">(.{,14})\u5728</span>\n")
     filter1 = re.compile(r"<a title=\"\" target=\"_blank\" onclick=\"pageTracker[.]_trackPageview.*?;\" href=\"/shop/[0-9]*\">(.*?)</a>")
     filter1_shopID = re.compile(r"<a title=\"\" target=\"_blank\" onclick=\"pageTracker[.]_trackPageview.*?;\" href=\"/shop/([0-9]*)\">.*?</a>")
-    filter2_time = re.compile(u"<span class=\"time\">(.{14})\u5728</span><a title=\".*?\" target=\"_blank\" href=\"/shop/")
-    filter2 = re.compile(u"<span class=\"time\">.{14}\u5728</span><a title=\"(.*?)\" target=\"_blank\" href=\"/shop/")
-    filter2_shopID = re.compile(u"lass=\"time\">.{14}\u5728</span><a title=\".*?\" target=\"_blank\" href=\"/shop/([0-9]*)\"")
+    filter2_time = re.compile(u"<span class=\"time\">(.{,14})\u5728</span><a title=\".*?\" target=\"_blank\" href=\"/shop/")
+    filter2 = re.compile(u"<span class=\"time\">.{,14}\u5728</span><a title=\"(.*?)\" target=\"_blank\" href=\"/shop/")
+    filter2_shopID = re.compile(u"lass=\"time\">.{,14}\u5728</span><a title=\".*?\" target=\"_blank\" href=\"/shop/([0-9]*)\"")
     times = filter1_time.findall(html) + filter2_time.findall(html)
     places= filter1.findall(html) + filter2.findall(html)
     shopID = filter1_shopID.findall(html) + filter2_shopID.findall(html)

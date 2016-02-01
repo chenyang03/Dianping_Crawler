@@ -29,7 +29,7 @@ def getInRange(inputfile):
         print(i)
         driver = webdriver.Firefox()
         try:
-            time.sleep(random.randint(5, 6))
+            time.sleep(random.randint(3, 4))
             profile_str = dianping_u_profile_crawler.get_page(i, driver).getstr()
             if not profile_str.find("\"Year\": 1990") == -1:
                 raise

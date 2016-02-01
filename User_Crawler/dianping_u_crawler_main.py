@@ -65,3 +65,4 @@ def getInRange(inputfile):
         except:
             driver.close()
             continue
+

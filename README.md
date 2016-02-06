@@ -14,9 +14,7 @@ Usage:
 
 - Run 'bash install.sh' (no sudo please) to set everything ready for user crawler to run.
 
-- Edit 'begin_ID', 'end_ID', and 'step' in 'dianping_u_script.py'.
-
-- Manually set the content of status.txt to begin_ID (important).
+- Manually fill inputfile.txt with the users you are to crawl, one ID in each line without any formats. 
 
 - Run crawler using bash command 'xvfb-run python dianping_u_script.py'.
 
